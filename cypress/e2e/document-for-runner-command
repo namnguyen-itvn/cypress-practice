@@ -1,0 +1,22 @@
+
+--env, -e               :Specify environment variables
+--headed                :Displays the browser instead of running headlessly
+--headless	            :Hide the browser instead of running headed (default during cypress run)
+--parallel	            :Run recorded specs in parallel across multiple machines
+--reporter-options, -o	:Specify Mocha reporter options
+--spec, -s              :Specify the spec files to run
+Some example:
+1. Run all specs file                   : npx cypress run
+2. Run with other browser               : cypress run --browser chrome
+3. Run with config                      : cypress run --config pageLoadTimeout=100000,watchForFileChanges=false
+4. Run with config feature toggle       : cypress run --env flags='{"feature-a":true,"feature-b":false}'
+5. Run with specific spec               : cypress run --spec 'cypress/e2e/MyPracticeTests.cy.js'
+5-1. Run with multiple specs            : cypress run --spec "cypress/e2e/examples/actions.cy.js,cypress/e2e/examples/files.cy.js"
+6. Run with group specs                 : cypress run --group admin-tests --spec 'cypress/e2e/**/*'
+7. Run with UI started                  : cypress run --headed
+8. Run with UI and stay at the end      : cypress run --headed --no-exit
+9. Run and record in parallel           : cypress run --record --parallel
+10. Run with name of Group              : cypress run --record --parallel --group e2e
+11. Run and generate the report type    : cypress run --reporter junit --reporter-options mochaFile=result.xml,toConsole=true
+12. Verify Cypress install correct      : npx cypress verify
+13. Clear cypress cache                 : npx cypress clear
